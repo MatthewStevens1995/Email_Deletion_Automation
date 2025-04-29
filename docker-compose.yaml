@@ -1,0 +1,13 @@
+services:
+  email-deletion-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./client_secret:/app/client_secret:ro
+      - ./secrets:/app/secrets:ro
+      - ./token.pickle:/app/token.pickle:ro
+    environment:
+      - LOG_LEVEL=INFO
+    stdin_open: true
+    tty: true
